@@ -29,6 +29,90 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <style>
+    .lang-toggle {
+      display: flex;
+      gap: 4px;
+      justify-content: center;
+      margin: 15px 10px 0;
+    }
+    .lang-toggle button {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.7);
+      padding: 4px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.3s;
+    }
+    .lang-toggle button.active,
+    .lang-toggle button:hover {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border-color: rgba(255,255,255,0.6);
+    }
+
+    /* Dark Theme */
+    body.dark-theme {
+      --background-color: #0f172a;
+      --default-color: #cbd5e1;
+      --heading-color: #f1f5f9;
+      --surface-color: #1e293b;
+      --contrast-color: #f1f5f9;
+      --accent-color: #38bdf8;
+    }
+    body.dark-theme .light-background {
+      --background-color: #1e293b;
+      --surface-color: #334155;
+    }
+    body.dark-theme .header {
+      border-right-color: rgba(203,213,225,0.1);
+    }
+    body.dark-theme .header .profile-img img {
+      border-color: rgba(203,213,225,0.15);
+    }
+    body.dark-theme .resume-item {
+      background: var(--surface-color);
+    }
+    body.dark-theme .resume-title {
+      border-bottom-color: var(--accent-color);
+    }
+    body.dark-theme .portfolio-filters li {
+      background: var(--surface-color);
+      color: var(--default-color);
+    }
+    body.dark-theme .portfolio-filters li:hover,
+    body.dark-theme .portfolio-filters li.filter-active {
+      background: var(--accent-color);
+      color: var(--contrast-color);
+    }
+    body.dark-theme .portfolio-info {
+      background: var(--surface-color);
+    }
+    body.dark-theme .portfolio-info h4 {
+      color: var(--heading-color);
+    }
+    body.dark-theme .info-item {
+      background: var(--surface-color);
+    }
+    body.dark-theme .info-item h3 {
+      color: var(--heading-color);
+    }
+    body.dark-theme .progress-bar-wrap {
+      background: rgba(255,255,255,0.1);
+    }
+    body.dark-theme .footer {
+      background: var(--surface-color);
+    }
+    body.dark-theme .section-title p {
+      color: var(--default-color);
+    }
+    body.dark-theme .content h2 {
+      color: var(--heading-color);
+    }
+  </style>
+
   <!-- =======================================================
   * Template Name: iPortfolio
   * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
@@ -50,14 +134,19 @@
     <a href="index.html" class="logo d-flex align-items-center justify-content-center">
          <h1 class="sitename">Lilith Bichakhchyan</h1>
     </a>
+    <div class="lang-toggle">
+      <button id="lang-en" class="active" onclick="setLanguage('en')">EN</button>
+      <button id="lang-ru" onclick="setLanguage('ru')">RU</button>
+      <button id="theme-toggle" onclick="toggleTheme()" title="Toggle theme"><i class="bi bi-moon-fill"></i></button>
+    </div>
     <nav id="navmenu" class="navmenu">
 
       <ul>
-        <li><a href="#hero" class="active" data-text-en="Home" data-text-ru="Дом"><i class="bi bi-house navicon"  ></i>Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span data-i18n="nav-home">Home</span></a></li>
+        <li><a href="#about"><i class="bi bi-person navicon"></i><span data-i18n="nav-about">About</span></a></li>
+        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i><span data-i18n="nav-resume">Resume</span></a></li>
+        <li><a href="#portfolio"><i class="bi bi-images navicon"></i><span data-i18n="nav-portfolio">Portfolio</span></a></li>
+        <li><a href="#contact"><i class="bi bi-envelope navicon"></i><span data-i18n="nav-contact">Contact</span></a></li>
       </ul>
     </nav>
 
@@ -72,7 +161,7 @@
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <h2>Lilith Bichakhchyan</h2>
-        <p>I'm <span class="typed" data-typed-items="Python,Python Developer">Python Developer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+        <p><span data-i18n="hero-greeting">I'm </span><span class="typed" data-typed-items="Python,Python Developer" data-typed-items-ru="Python,Python-разработчик">Python Developer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
       </div>
 
     </section><!-- /Hero Section -->
@@ -82,7 +171,7 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
+        <h2 data-i18n="about-title">About</h2>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -92,25 +181,25 @@
             <img src="assets/img/my-profile-img.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-8 content">
-            <h2>Python Developer.</h2>
-            <p class="fst-italic py-3">
+            <h2 data-i18n="about-role">Python Developer.</h2>
+            <p class="fst-italic py-3" data-i18n="about-desc1">
               I have specialized education, logical thinking, and a strong desire to grow in the field of Python development.
             </p>
             <div class="row">
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>26 January 1992</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+7(999)633-17-64</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong data-i18n="about-birthday">Birthday:</strong> <span>26 January 1992</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong data-i18n="about-phone">Phone:</strong> <span>+7(999)633-17-64</span></li>
                 </ul>
               </div>
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>bichakhchyanlilith1992@gmail.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong data-i18n="about-email">Email:</strong> <span>bichakhchyanlilith1992@gmail.com</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong data-i18n="about-freelance">Freelance:</strong> <span data-i18n="about-available">Available</span></li>
                 </ul>
               </div>
             </div>
-            <p class="py-3">
+            <p class="py-3" data-i18n="about-desc2">
               I absorb new knowledge swiftly and relish the learning process; I'm particularly enthusiastic about tackling unexplored tasks within a team.
             </p>
           </div>
@@ -126,8 +215,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Skills</h2>
-        <p>Here is my hard skills: </p>
+        <h2 data-i18n="skills-title">Skills</h2>
+        <p data-i18n="skills-desc">Here is my hard skills: </p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -231,8 +320,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Resume</h2>
-        <p>Python developer with experience working with Django and Django Rest Framework, I own Python, SQL and PostgreSQL. Practical experience of testing web applications (unittest, pytest, TDD), implementation of the layout (HTML, CSS, Bootstrap) and work with Docker/Docker Compose. I have basic CI/CD knowledge and confident in using Git to control versions.</p>
+        <h2 data-i18n="resume-title">Resume</h2>
+        <p data-i18n="resume-desc">Python developer with experience working with Django and Django Rest Framework, I own Python, SQL and PostgreSQL. Practical experience of testing web applications (unittest, pytest, TDD), implementation of the layout (HTML, CSS, Bootstrap) and work with Docker/Docker Compose. I have basic CI/CD knowledge and confident in using Git to control versions.</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -240,64 +329,64 @@
         <div class="row">
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Sumary</h3>
+            <h3 class="resume-title" data-i18n="resume-summary">Sumary</h3>
 
             <div class="resume-item pb-0">
               <h4>Lilith</h4>
-              <p><em>Python developer with experience working with Django and Django Rest Framework.</em></p>
+              <p data-i18n="resume-summary-desc"><em>Python developer with experience working with Django and Django Rest Framework.</em></p>
               <ul>
                 <li>+7 (999) 633-17-64</li>
                 <li>bichakhchyanlilith1992@gmail.com</li>
               </ul>
             </div><!-- Edn Resume Item -->
 
-            <h3 class="resume-title">Education</h3>
+            <h3 class="resume-title" data-i18n="resume-education">Education</h3>
 
             <div class="resume-item">
-              <h4>Professional requalification of Python(backend) Developer</h4>
+              <h4 data-i18n="resume-edu1-title">Professional requalification of Python(backend) Developer</h4>
               <h5>2025- 2026</h5>
-              <p><em>Skypro, Russia, Moscow</em></p>
-              <p>I defended Graduation Thesis on the topic "API for library management coded on django/DRF"</p>
+              <p><em data-i18n="resume-edu1-school">Skypro, Russia, Moscow</em></p>
+              <p data-i18n="resume-edu1-desc">I defended Graduation Thesis on the topic "API for library management coded on django/DRF"</p>
             </div><!-- Edn Resume Item -->
 
             <div class="resume-item">
-              <h4>Master of Natural Sciences &amp; "Bioinformatics"</h4>
+              <h4 data-i18n="resume-edu2-title">Master of Natural Sciences &amp; "Bioinformatics"</h4>
               <h5>2014 - 2016</h5>
-              <p><em>Yerevan State University, Armenia, Yerevan</em></p>
-              <p>I defended Master's thesis on the topic "Structure and modeling of E. coli phospholipids membrane of langs cancer ill and healthy people " </p>
+              <p><em data-i18n="resume-edu2-school">Yerevan State University, Armenia, Yerevan</em></p>
+              <p data-i18n="resume-edu2-desc">I defended Master's thesis on the topic "Structure and modeling of E. coli phospholipids membrane of langs cancer ill and healthy people " </p>
             </div><!-- Edn Resume Item -->
 
             <div class="resume-item">
-              <h4>Bachelor of Natural Sciences ("Bioinformatics") &amp; Qualification of a Teacher</h4>
+              <h4 data-i18n="resume-edu3-title">Bachelor of Natural Sciences ("Bioinformatics") &amp; Qualification of a Teacher</h4>
               <h5>2010 - 2014</h5>
-              <p><em>Yerevan State University, Armenia, Yerevan</em></p>
-              <p>I defended Graduation Thesis on the topic "Parametric and parallel features of Gromacs software package"</p>
+              <p><em data-i18n="resume-edu3-school">Yerevan State University, Armenia, Yerevan</em></p>
+              <p data-i18n="resume-edu3-desc">I defended Graduation Thesis on the topic "Parametric and parallel features of Gromacs software package"</p>
             </div><!-- Edn Resume Item -->
 
           </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="resume-title">Professional Experience</h3>
+            <h3 class="resume-title" data-i18n="resume-experience">Professional Experience</h3>
             <div class="resume-item">
-              <h4>Python Developer</h4>
-              <h5>2025 - Present</h5>
-              <p><em> Project activity, Russia </em></p>
+              <h4 data-i18n="resume-exp1-title">Python Developer</h4>
+              <h5 data-i18n="resume-exp1-period">2025 - Present</h5>
+              <p><em data-i18n="resume-exp1-company"> Project activity, Russia </em></p>
               <ul>
-                <li>Library Management System (LMS) | DRF, Django, Git, JWT, ORM, OpenAPI, Docker and Docker Compose <br>
+                <li data-i18n="resume-exp1-desc1">Library Management System (LMS) | DRF, Django, Git, JWT, ORM, OpenAPI, Docker and Docker Compose <br>
                     Result: Automatic delivery of books to users.<br>
                     The REST API is designed to manage library operations. The API provides ways to manage books, authors, and users, as well as track how books are distributed among users.
                 </li>
-                <li>Habit Tracker | Django, DRF, Celery, PostgreSQL, Telegram Bot API <br>
+                <li data-i18n="resume-exp1-desc2">Habit Tracker | Django, DRF, Celery, PostgreSQL, Telegram Bot API <br>
                   API service for generating and tracking useful habits, with reminders and system of rewards. <br>
                   Result: Automated the user reminder process and implemented stable asynchronous processing of tasks via Celery. <br>
                   Contribution: designed API architecture, implemented Telegram-bot for notifications, ensured code reliability by testing (pytest, unittest).
                 </li>
-                <li>Mailing Management Service | Django, DRF, PostgreSQL,<br>
+                <li data-i18n="resume-exp1-desc3">Mailing Management Service | Django, DRF, PostgreSQL,<br>
                   Web application to manage and automatically send emails to customers.<br>
                   Result: created a system of scheduled mailings, reducing manual labor and increasing message delivery stability.<br>
                   Contribution: implemented full CRUD function of mailings, messages and customers; set up sending emails via command line.
                 </li>
-                <li>Job Parser | Python, PostgreSQL, OOP, API <br>
+                <li data-i18n="resume-exp1-desc4">Job Parser | Python, PostgreSQL, OOP, API <br>
                   Program for collecting and analyzing vacancies from popular aggregators (HH, etc.).<br>
                   Result: automated data collection and structuring of vacancies, accelerated Labour market analysis.<br>
                   Contribution: designed the object-oriented architecture of the Parser, implemented, saving and aggregating data in PostgreSQL, added filter and analysis scripts.
@@ -306,14 +395,14 @@
             </div><!-- Edn Resume Item -->
 
             <div class="resume-item">
-              <h4>English teacher</h4>
-              <h5>2025 - present</h5>
-              <p><em>School №27, Russia </em></p>
+              <h4 data-i18n="resume-exp2-title">English teacher</h4>
+              <h5 data-i18n="resume-exp2-period">2025 - present</h5>
+              <p><em data-i18n="resume-exp2-company">School №27, Russia </em></p>
               <ul>
-                <li>Conducted group classes in English.</li>
-                <li>Analyzed students' progress and adapted the learning program to their goals.</li>
-                <li>Developed communication skills, information structuring and solving non-standard tasks.</li>
-                <li> Maintained high quality indicators</li>
+                <li data-i18n="resume-exp2-desc1">Conducted group classes in English.</li>
+                <li data-i18n="resume-exp2-desc2">Analyzed students' progress and adapted the learning program to their goals.</li>
+                <li data-i18n="resume-exp2-desc3">Developed communication skills, information structuring and solving non-standard tasks.</li>
+                <li data-i18n="resume-exp2-desc4"> Maintained high quality indicators</li>
               </ul>
             </div><!-- Edn Resume Item -->
 
@@ -330,8 +419,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-        <p>My project activities:</p>
+        <h2 data-i18n="portfolio-title">Portfolio</h2>
+        <p data-i18n="portfolio-desc">My project activities:</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -339,8 +428,8 @@
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
           <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
+            <li data-filter="*" class="filter-active" data-i18n="portfolio-all">All</li>
+            <li data-filter=".filter-app" data-i18n="portfolio-app">App</li>
           </ul><!-- End Portfolio Filters -->
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
@@ -349,8 +438,8 @@
               <div class="portfolio-content h-100">
                 <img src="assets/img/portfolio/library3.jpeg" width="300" alt="">
                 <div class="portfolio-info">
-                  <h4>Library Management System (LMS) </h4>
-                  <p>The REST API is designed to manage library operations.</p>
+                  <h4 data-i18n="portfolio1-title">Library Management System (LMS) </h4>
+                  <p data-i18n="portfolio1-desc">The REST API is designed to manage library operations.</p>
                   <a href="https://github.com/LilithB92/library"  class="details-link"><i class="bi bi-github"></i></a>
                 </div>
               </div>
@@ -360,8 +449,8 @@
               <div class="portfolio-content h-100">
                 <img src="assets/img/portfolio/habbit_tracker.jpeg" class="img-fluid" alt="" width="300" >
                 <div class="portfolio-info">
-                  <h4>Habit Tracker </h4>
-                  <p>Automated the user reminder process and implemented stable asynchronous processing of tasks via Celery.</p>
+                  <h4 data-i18n="portfolio2-title">Habit Tracker </h4>
+                  <p data-i18n="portfolio2-desc">Automated the user reminder process and implemented stable asynchronous processing of tasks via Celery.</p>
                    <a href="https://github.com/LilithB92/habibt_tracker/tree/develop"  class="details-link"><i class="bi bi-github"></i></a>
                 </div>
               </div>
@@ -371,8 +460,8 @@
               <div class="portfolio-content h-100">
                 <img src="assets/img/portfolio/MMS.jpeg" class="img-fluid" alt="" width="300" >
                 <div class="portfolio-info">
-                  <h4>Mailing Management Service</h4>
-                  <p>Web application to manage and automatically send emails to customers.</p>
+                  <h4 data-i18n="portfolio3-title">Mailing Management Service</h4>
+                  <p data-i18n="portfolio3-desc">Web application to manage and automatically send emails to customers.</p>
                    <a href="https://github.com/LilithB92/Email-Service-Provider/tree/develope"  class="details-link"><i class="bi bi-github"></i></a>
                 </div>
               </div>
@@ -382,8 +471,8 @@
               <div class="portfolio-content h-100">
                 <img src="assets/img/portfolio/job_parser.jpeg" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <h4>Job Parser</h4>
-                  <p>Program for collecting and analyzing vacancies from popular aggregators (HH, etc.)</p>
+                  <h4 data-i18n="portfolio4-title">Job Parser</h4>
+                  <p data-i18n="portfolio4-desc">Program for collecting and analyzing vacancies from popular aggregators (HH, etc.)</p>
                   <a href="https://github.com/LilithB92/hunt_job_with_DB/tree/developer"  class="details-link"><i class="bi bi-github"></i></a>
                 </div>
               </div>
@@ -404,8 +493,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Here my contacts:</p>
+        <h2 data-i18n="contact-title">Contact</h2>
+        <p data-i18n="contact-desc">Here my contacts:</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -415,7 +504,7 @@
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
                 <i class="bi bi-telephone flex-shrink-0"></i>
                 <div>
-                  <h3>Call Ме</h3>
+                  <h3 data-i18n="contact-call">Call Ме</h3>
                   <p>+7 (999) 633-17-64</p>
                 </div>
               </div><!-- End Info Item -->
@@ -423,7 +512,7 @@
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
-                  <h3>Email Ме</h3>
+                  <h3 data-i18n="contact-email-title">Email Ме</h3>
                   <p>bichakhchyanlilith1992@gmail.com</p>
                 </div>
               </div><!-- End Info Item -->
@@ -437,7 +526,7 @@
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
                 <a href="https://t.me/LilithBichakhchyan" class="telegram"><i class="bi bi-telegram"></i></a>
                 <div>
-                  <h3>Write me</h3>
+                  <h3 data-i18n="contact-write">Write me</h3>
                   <p>@LilithBichakhchyan</p>
                 </div>
               </div><!-- End Info Item -->
@@ -445,7 +534,7 @@
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
                 <i class="bi bi-messenger"></i>
                 <div>
-                  <h3> Message Ме</h3>
+                  <h3 data-i18n="contact-message"> Message Ме</h3>
                   <p>@lilit.bichakhchyan</p>
                 </div>
               </div><!-- End Info Item -->
@@ -459,7 +548,7 @@
 
     <div class="container">
       <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">iPortfolio</strong> <span>All Rights Reserved</span></p>
+        <p>© <span data-i18n="footer-copyright">Copyright</span> <strong class="px-1 sitename">iPortfolio</strong> <span data-i18n="footer-rights">All Rights Reserved</span></p>
       </div>
     </div>
 
@@ -485,6 +574,12 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- i18n Translations -->
+  <script src="assets/js/i18n.js"></script>
+
+  <!-- Theme Toggle -->
+  <script src="assets/js/theme.js"></script>
 
 </body>
 
