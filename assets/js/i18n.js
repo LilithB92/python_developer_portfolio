@@ -1,5 +1,6 @@
 const translations = {
   en: {
+    'site-name': 'Lilith Bichakhchyan',
     'nav-home': 'Home',
     'nav-about': 'About',
     'nav-resume': 'Resume',
@@ -18,6 +19,7 @@ const translations = {
     'skills-title': 'Skills',
     'skills-desc': 'Here is my hard skills: ',
     'resume-title': 'Resume',
+    'resume-name': 'Lilith',
     'resume-desc': 'Python developer with experience working with Django and Django Rest Framework, I own Python, SQL and PostgreSQL. Practical experience of testing web applications (unittest, pytest, TDD), implementation of the layout (HTML, CSS, Bootstrap) and work with Docker/Docker Compose. I have basic CI/CD knowledge and confident in using Git to control versions.',
     'resume-summary': 'Sumary',
     'resume-summary-desc': '<em>Python developer with experience working with Django and Django Rest Framework.</em>',
@@ -68,6 +70,7 @@ const translations = {
     'footer-rights': 'All Rights Reserved'
   },
   ru: {
+    'site-name': 'Лилит Бичахчян',
     'nav-home': 'Главная',
     'nav-about': 'Обо мне',
     'nav-resume': 'Резюме',
@@ -86,6 +89,7 @@ const translations = {
     'skills-title': 'Навыки',
     'skills-desc': 'Мои профессиональные навыки: ',
     'resume-title': 'Резюме',
+    'resume-name': 'Лилит',
     'resume-desc': 'Python-разработчик с опытом работы с Django и Django Rest Framework, владею Python, SQL и PostgreSQL. Практический опыт тестирования веб-приложений (unittest, pytest, TDD), реализации вёрстки (HTML, CSS, Bootstrap) и работы с Docker/Docker Compose. Есть базовые знания CI/CD и уверенно использую Git для контроля версий.',
     'resume-summary': 'Краткое описание',
     'resume-summary-desc': '<em>Python-разработчик с опытом работы с Django и Django Rest Framework.</em>',
