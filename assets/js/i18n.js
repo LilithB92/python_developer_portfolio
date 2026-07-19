@@ -168,6 +168,7 @@ function setLanguage(lang) {
 }
 
 (function() {
-  const saved = localStorage.getItem('lang') || 'en';
+      const saved = localStorage.getItem('lang') || 'ru';
+
   setLanguage(saved);
 })();
