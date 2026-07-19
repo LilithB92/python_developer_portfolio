@@ -1,0 +1,139 @@
+/* Language Toggle */
+.lang-toggle {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  margin: 9px 10px 0;
+}
+.lang-toggle button {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.7);
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.3s;
+}
+.lang-toggle button.active,
+.lang-toggle button:hover {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border-color: rgba(255,255,255,0.6);
+}
+
+/* Dark Theme - Blue */
+body.dark-theme {
+  --background-color: #0f172a;
+  --default-color: #cbd5e1;
+  --heading-color: #f1f5f9;
+  --surface-color: #1e293b;
+  --contrast-color: #f1f5f9;
+  --accent-color: #38bdf8;
+}
+body.dark-theme .light-background {
+  --background-color: #1e293b;
+  --surface-color: #334155;
+}
+body.dark-theme .header {
+  border-right-color: rgba(203,213,225,0.1);
+}
+body.dark-theme .header .profile-img img {
+  border-color: rgba(203,213,225,0.15);
+}
+body.dark-theme .resume-item {
+  background: var(--surface-color);
+}
+body.dark-theme .resume-title {
+  border-bottom-color: var(--accent-color);
+}
+body.dark-theme .portfolio-filters li {
+  background: var(--surface-color);
+  color: var(--default-color);
+}
+body.dark-theme .portfolio-filters li:hover,
+body.dark-theme .portfolio-filters li.filter-active {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+body.dark-theme .portfolio-info {
+  background: var(--surface-color);
+}
+body.dark-theme .portfolio-info h4 {
+  color: var(--heading-color);
+}
+body.dark-theme .info-item {
+  background: var(--surface-color);
+}
+body.dark-theme .info-item h3 {
+  color: var(--heading-color);
+}
+body.dark-theme .progress-bar-wrap {
+  background: rgba(255,255,255,0.1);
+}
+body.dark-theme .footer {
+  background: var(--surface-color);
+}
+body.dark-theme .section-title p {
+  color: var(--default-color);
+}
+body.dark-theme .content h2 {
+  color: var(--heading-color);
+}
+
+/* About section: image fills full text height */
+.about .col-lg-4 img {
+  height: calc(100% - 70px);
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: -40px;
+  margin-top: -5px;
+}
+
+/* Skills section: pull up */
+#skills {
+  margin-top: -5px;
+}
+
+/* Menu bar: gradient background + rounded corners */
+.header {
+  background: linear-gradient(180deg, #040b14 0%, #0a192f 50%, #112240 100%) !important;
+  border-right: none !important;
+  border-radius: 20px;
+  margin: 10px 0 10px 10px;
+  height: calc(100vh - 20px);
+}
+body.dark-theme .header {
+  background: linear-gradient(180deg, #020617 0%, #0f172a 50%, #1e293b 100%) !important;
+}
+
+/* Offset main content for rounded sidebar */
+@media (min-width: 1200px) {
+  .header ~ main,
+  .header ~ #footer {
+    margin-left: 320px !important;
+  }
+}
+
+/* Menu bar: rounded items */
+.navmenu ul {
+  padding: 0 5px 20px;
+}
+.navmenu a,
+.navmenu a:focus {
+  border-radius: 10px;
+  margin-bottom: 4px;
+  padding: 12px 15px;
+  transition: all 0.3s;
+}
+.navmenu a:hover,
+.navmenu .active,
+.navmenu .active:focus {
+  background: rgba(255,255,255,0.08);
+}
+.navmenu a:hover .navicon,
+.navmenu .active .navicon,
+.navmenu .active:focus .navicon {
+  color: var(--accent-color);
+}

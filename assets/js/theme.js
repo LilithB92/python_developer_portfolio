@@ -17,8 +17,7 @@ function updateThemeIcon(isDark) {
 
 (function() {
   const saved = localStorage.getItem('theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const isDark = saved ? saved === 'dark' : prefersDark;
+  const isDark = saved ? saved === 'dark' : true;
 
   if (isDark) {
     document.body.classList.add('dark-theme');

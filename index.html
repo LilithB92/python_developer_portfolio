@@ -28,98 +28,7 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-
-  <style>
-    .lang-toggle {
-      display: flex;
-      gap: 4px;
-      justify-content: center;
-      margin: 15px 10px 0;
-    }
-    .lang-toggle button {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.3);
-      color: rgba(255,255,255,0.7);
-      padding: 4px 12px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 0.85rem;
-      transition: all 0.3s;
-    }
-    .lang-toggle button.active,
-    .lang-toggle button:hover {
-      background: rgba(255,255,255,0.15);
-      color: #fff;
-      border-color: rgba(255,255,255,0.6);
-    }
-
-    /* Dark Theme */
-    body.dark-theme {
-      --background-color: #0f172a;
-      --default-color: #cbd5e1;
-      --heading-color: #f1f5f9;
-      --surface-color: #1e293b;
-      --contrast-color: #f1f5f9;
-      --accent-color: #38bdf8;
-    }
-    body.dark-theme .light-background {
-      --background-color: #1e293b;
-      --surface-color: #334155;
-    }
-    body.dark-theme .header {
-      border-right-color: rgba(203,213,225,0.1);
-    }
-    body.dark-theme .header .profile-img img {
-      border-color: rgba(203,213,225,0.15);
-    }
-    body.dark-theme .resume-item {
-      background: var(--surface-color);
-    }
-    body.dark-theme .resume-title {
-      border-bottom-color: var(--accent-color);
-    }
-    body.dark-theme .portfolio-filters li {
-      background: var(--surface-color);
-      color: var(--default-color);
-    }
-    body.dark-theme .portfolio-filters li:hover,
-    body.dark-theme .portfolio-filters li.filter-active {
-      background: var(--accent-color);
-      color: var(--contrast-color);
-    }
-    body.dark-theme .portfolio-info {
-      background: var(--surface-color);
-    }
-    body.dark-theme .portfolio-info h4 {
-      color: var(--heading-color);
-    }
-    body.dark-theme .info-item {
-      background: var(--surface-color);
-    }
-    body.dark-theme .info-item h3 {
-      color: var(--heading-color);
-    }
-    body.dark-theme .progress-bar-wrap {
-      background: rgba(255,255,255,0.1);
-    }
-    body.dark-theme .footer {
-      background: var(--surface-color);
-    }
-    body.dark-theme .section-title p {
-      color: var(--default-color);
-    }
-    body.dark-theme .content h2 {
-      color: var(--heading-color);
-    }
-  </style>
-
-  <!-- =======================================================
-  * Template Name: iPortfolio
-  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-  * Updated: Jun 29 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <link href="assets/css/custom.css" rel="stylesheet">
 </head>
 
 <body class="index-page">
@@ -132,7 +41,7 @@
     </div>
 
     <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-         <h1 class="sitename">Lilith Bichakhchyan</h1>
+         <h1 class="sitename" data-i18n="site-name">Lilith Bichakhchyan</h1>
     </a>
     <div class="lang-toggle">
       <button id="lang-en" class="active" onclick="setLanguage('en')">EN</button>
@@ -160,7 +69,7 @@
       <img src="assets/img/hero-img.jpeg" alt="" data-aos="fade-in" class="">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <h2>Lilith Bichakhchyan</h2>
+        <h2 data-i18n="site-name">Lilith Bichakhchyan</h2>
         <p><span data-i18n="hero-greeting">I'm </span><span class="typed" data-typed-items="Python,Python Developer" data-typed-items-ru="Python,Python-разработчик">Python Developer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
       </div>
 
@@ -332,7 +241,7 @@
             <h3 class="resume-title" data-i18n="resume-summary">Sumary</h3>
 
             <div class="resume-item pb-0">
-              <h4>Lilith</h4>
+              <h4 data-i18n="resume-name">Lilith</h4>
               <p data-i18n="resume-summary-desc"><em>Python developer with experience working with Django and Django Rest Framework.</em></p>
               <ul>
                 <li>+7 (999) 633-17-64</li>
